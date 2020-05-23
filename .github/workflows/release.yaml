@@ -1,0 +1,19 @@
+# Patterned after https://github.com/Moerill/Mess/blob/master/.github/workflows/release.yml
+
+name: Release
+
+on:
+  push:
+    branches: [ 'master' ]
+
+jobs:
+  build:
+    name: "Release"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Package
+        run: zip -@ package.zip < package/zip_list
+      - name: Report
+        run: unzip -l package.zip
