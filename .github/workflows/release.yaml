@@ -14,6 +14,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Package
-        run: zip -@ package.zip < package/zip_list
+        run: zip -@ release.zip < release/zip_list
       - name: Report
-        run: unzip -l package.zip
+        run: unzip -l release.zip
